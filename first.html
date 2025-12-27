@@ -21,6 +21,7 @@
             align-items: center;
             padding: 20px;
             color: #fff;
+            overflow-x: hidden;
         }
         
         .container {
@@ -46,6 +47,7 @@
             background-clip: text;
             color: transparent;
             text-shadow: 0 0 20px rgba(255, 51, 102, 0.3);
+            margin-bottom: 15px;
         }
         
         .date-display {
@@ -74,7 +76,7 @@
         .option-card {
             background: rgba(30, 30, 46, 0.8);
             border-radius: 24px;
-            width: 320px;
+            width: 270px;
             padding: 30px 25px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
             cursor: pointer;
@@ -96,7 +98,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00);
+            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00, #33ff66);
         }
         
         .option-card:hover {
@@ -108,6 +110,10 @@
         
         .option-card.fitness:hover {
             box-shadow: 0 25px 40px rgba(255, 51, 102, 0.2);
+        }
+        
+        .option-card.play:hover {
+            box-shadow: 0 25px 40px rgba(51, 255, 102, 0.2);
         }
         
         .option-card.internet:hover {
@@ -140,6 +146,11 @@
         .fitness .option-icon {
             background: linear-gradient(135deg, #ff3366, #ff6699);
             box-shadow: 0 10px 20px rgba(255, 51, 102, 0.4);
+        }
+        
+        .play .option-icon {
+            background: linear-gradient(135deg, #33ff66, #66ff99);
+            box-shadow: 0 10px 20px rgba(51, 255, 102, 0.4);
         }
         
         .internet .option-icon {
@@ -189,7 +200,7 @@
             left: 0;
             width: 100%;
             height: 8px;
-            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00);
+            background: linear-gradient(90deg, #ff3366, #33ff66, #33ccff, #ffcc00);
         }
         
         @keyframes fadeIn {
@@ -264,7 +275,7 @@
             flex: 1;
             min-width: 300px;
             min-height: 300px;
-            max-width: 400px;
+            max-width: 450px;
             max-height: 400px;
             border-radius: 20px;
             overflow: hidden;
@@ -354,7 +365,7 @@
         }
         
         .pros h4 {
-            color: #33ccff;
+            color: #33ff66;
         }
         
         .cons h4 {
@@ -362,7 +373,7 @@
         }
         
         .pros li::before {
-            color: #33ccff;
+            color: #33ff66;
         }
         
         .cons li::before {
@@ -380,7 +391,7 @@
             font-size: 3.5rem;
             font-weight: 900;
             letter-spacing: 8px;
-            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00);
+            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00, #33ff66);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -388,6 +399,7 @@
             position: relative;
             display: inline-block;
             padding: 10px 30px;
+            margin-bottom: 20px;
         }
         
         .gafcol::after {
@@ -397,7 +409,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00);
+            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00, #33ff66);
             border-radius: 3px;
         }
         
@@ -412,6 +424,12 @@
         }
         
         /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .option-card {
+                width: 230px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .main-title h1 {
                 font-size: 2.3rem;
@@ -461,8 +479,8 @@
     <div class="container">
         <!-- 主标题 -->
         <header class="main-title">
-            <h1>2025年12月27日你的生活方式</h1>
-            <div class="date-display">选择最适合你的周末计划，点击选项查看详情和建议</div>
+            <h1>选择你周末的生活方式</h1>
+            <div class="date-display">今天是2025年12月27日，选择最适合你的周末计划</div>
         </header>
         
         <!-- 选项卡片 -->
@@ -475,12 +493,20 @@
                 <p class="option-desc">释放压力，提升能量，塑造健康体态，为2025年打造完美开端。</p>
             </div>
             
+            <div class="option-card play" data-option="play">
+                <div class="option-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h2 class="option-title">游玩</h2>
+                <p class="option-desc">放松心情，体验乐趣，探索世界，与朋友共享欢乐时光。</p>
+            </div>
+            
             <div class="option-card internet" data-option="internet">
                 <div class="option-icon">
                     <i class="fas fa-laptop"></i>
                 </div>
                 <h2 class="option-title">上网</h2>
-                <p class="option-desc">探索数字世界，获取前沿资讯，连接全球趋势，激发创意灵感。</p>
+                <p class="option-desc">探索数字世界，体验电竞游戏，获取前沿资讯，激发创意灵感。</p>
             </div>
             
             <div class="option-card study" data-option="study">
@@ -506,38 +532,29 @@
             
             <div class="detail-content">
                 <div class="detail-image">
-                    <img id="detailImage" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="选项图片">
+                    <img id="detailImage" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="健身房">
                     <div class="image-source">图片来源: Unsplash</div>
                 </div>
                 
                 <div class="detail-info">
                     <div class="detail-section">
-                        <h3>2025潮流建议</h3>
-                        <p id="detailSuggestions">结合高科技健身设备与潮流运动方式，打造个性化的健康周末计划。</p>
+                        <h3>优点</h3>
+                        <ul id="detailPros">
+                            <li>增强体质，提高免疫力</li>
+                            <li>释放压力，改善心理健康</li>
+                            <li>塑造理想身材，增强自信</li>
+                            <li>提高新陈代谢，延缓衰老</li>
+                        </ul>
                     </div>
                     
                     <div class="detail-section">
-                        <h3>优点与缺点</h3>
-                        <div class="pros-cons">
-                            <div class="pros">
-                                <h4>2025优势</h4>
-                                <ul id="detailPros">
-                                    <li>增强免疫力，应对多变环境</li>
-                                    <li>释放压力，提升心理健康</li>
-                                    <li>塑造理想体态，增强自信</li>
-                                    <li>结交志同道合的健康伙伴</li>
-                                </ul>
-                            </div>
-                            <div class="cons">
-                                <h4>需要注意</h4>
-                                <ul id="detailCons">
-                                    <li>需要合理安排时间与强度</li>
-                                    <li>初期投入可能需要一定费用</li>
-                                    <li>需要坚持才能看到明显效果</li>
-                                    <li>不当训练可能导致运动伤害</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <h3>缺点</h3>
+                        <ul id="detailCons">
+                            <li>需要坚持才能看到效果</li>
+                            <li>不当训练可能导致受伤</li>
+                            <li>健身房会员费用较高</li>
+                            <li>需要合理安排时间</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -547,160 +564,176 @@
     <!-- GAFCOL标识 -->
     <div class="gafcol-container">
         <div class="gafcol">GAFCOL</div>
+        <div class="date-display">2025年12月27日</div>
     </div>
     
     <footer>
-        <p>2025年12月27日你的生活方式</p>
+        <p>周末生活方式选择器 - 2025年12月27日</p>
     </footer>
 
     <script>
-        // 选项数据 - 更新为2025年潮流风格
+        // 选项数据
         const optionsData = {
             fitness: {
                 title: "健身",
                 icon: '<i class="fas fa-dumbbell"></i>',
-                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                suggestions: "1. 尝试智能健身设备，如AI教练或VR健身课程<br>2. 结合户外与室内训练，体验2025年潮流运动方式<br>3. 参加线上健身社群挑战，与全球健身爱好者互动<br>4. 利用健康追踪设备，制定个性化训练计划<br>5. 尝试功能性训练与冥想结合的新兴健身模式",
+                image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 pros: [
-                    "增强免疫力，应对多变环境挑战",
-                    "释放工作压力，提升心理健康水平",
-                    "塑造理想体态，增强2025年新形象自信",
-                    "结交志同道合的健康伙伴，拓展社交圈",
-                    "提升整体生活质量，为长期健康投资"
+                    "增强体质，提高免疫力",
+                    "释放压力，改善心理健康",
+                    "塑造理想身材，增强自信",
+                    "提高新陈代谢，延缓衰老",
+                    "改善睡眠质量"
                 ],
                 cons: [
-                    "需要合理安排时间与训练强度",
-                    "高品质健身设备/课程可能需要一定投入",
-                    "需要持续坚持才能看到明显效果",
-                    "不当训练可能导致运动伤害风险",
-                    "可能占用其他休闲活动时间"
+                    "需要坚持才能看到效果",
+                    "不当训练可能导致受伤",
+                    "健身房会员费用较高",
+                    "需要合理安排时间",
+                    "初期肌肉酸痛是常见现象"
+                ]
+            },
+            play: {
+                title: "游玩",
+                icon: '<i class="fas fa-gamepad"></i>',
+                image: "https://images.unsplash.com/photo-1519677100203-5f5a1c56b7b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                pros: [
+                    "放松心情，缓解工作压力",
+                    "与朋友家人增进感情",
+                    "体验新事物，开阔视野",
+                    "创造美好回忆",
+                    "激发创造力和想象力"
+                ],
+                cons: [
+                    "游乐场门票通常较贵",
+                    "节假日人多需要排队",
+                    "可能产生额外消费",
+                    "长时间游玩易疲劳",
+                    "需要提前规划行程"
                 ]
             },
             internet: {
                 title: "上网",
                 icon: '<i class="fas fa-laptop"></i>',
-                image: "https://images.unsplash.com/photo-1585699324551-bb5e7e3c2b59?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                suggestions: "1. 探索2025年新兴数字平台与元宇宙体验<br>2. 在网吧体验CS2等热门电竞游戏，感受竞技氛围<br>3. 关注全球前沿科技与潮流资讯<br>4. 参与线上创意工作坊或虚拟现实活动<br>5. 与朋友组队游戏，增强团队协作能力",
+                image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 pros: [
-                    "体验最新电竞游戏如CS2，感受竞技乐趣",
-                    "网吧环境提供高性能设备，游戏体验更佳",
-                    "与朋友组队游戏，增强社交互动",
-                    "释放压力，享受沉浸式娱乐体验",
-                    "灵活安排时间，自由探索兴趣领域"
+                    "获取最新信息和资讯",
+                    "玩CS等电竞游戏，体验竞技乐趣",
+                    "与朋友在线互动，社交娱乐",
+                    "学习新技能，拓展知识",
+                    "时间安排自由灵活"
                 ],
                 cons: [
-                    "长时间游戏可能影响视力与健康",
-                    "网吧环境可能存在噪音干扰",
-                    "过度游戏可能影响学习和工作效率",
-                    "消费可能较高，需合理控制预算",
-                    "被动消费内容可能缺乏创造性产出"
+                    "长时间上网影响视力",
+                    "可能沉迷网络游戏",
+                    "久坐不动对健康不利",
+                    "网络安全和个人隐私风险",
+                    "容易浪费大量时间"
                 ]
             },
             study: {
                 title: "复习",
                 icon: '<i class="fas fa-book-open"></i>',
-                image: "https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                suggestions: "1. 使用AI学习助手，制定个性化复习计划<br>2. 参考抖音热门学习梗图，如"贝利亚忘本"，增加学习趣味性<br>3. 尝试微学习与碎片化知识获取方式<br>4. 利用沉浸式学习工具提升专注力<br>5. 设置明确目标，为2026年职业发展做准备",
+                image: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 pros: [
-                    "结合流行文化梗图，增加学习趣味性",
-                    "系统化知识巩固，提升专业竞争力",
-                    "为2026年职业发展与挑战做好充分准备",
-                    "培养自律性与时间管理能力",
-                    "建立完整知识体系，增强问题解决能力"
+                    "巩固知识，提升专业技能",
+                    "为未来职业发展打好基础",
+                    "培养自律和专注能力",
+                    "图书馆环境安静适合学习",
+                    "提高考试和考核成绩"
                 ],
                 cons: [
-                    "长时间学习可能导致疲劳与压力积累",
-                    "可能减少周末休闲与社交活动时间",
-                    "需要较强的自我管理与自律能力",
-                    "过度学习可能影响身心健康平衡",
-                    "容易受流行文化梗图干扰而分心"
+                    "需要较强的自制力",
+                    "长时间学习易疲劳",
+                    "可能错过社交活动",
+                    "学习压力可能较大",
+                    "需要找到合适的学习环境"
                 ]
             }
         };
 
-        // 获取DOM元素
-        const optionCards = document.querySelectorAll('.option-card');
-        const detailPage = document.getElementById('detailPage');
-        const detailHeading = document.getElementById('detailHeading');
-        const detailIcon = document.getElementById('detailIcon');
-        const detailImage = document.getElementById('detailImage');
-        const detailSuggestions = document.getElementById('detailSuggestions');
-        const detailPros = document.getElementById('detailPros');
-        const detailCons = document.getElementById('detailCons');
-        const backBtn = document.getElementById('backBtn');
-        const optionsContainer = document.querySelector('.options-container');
-        const mainTitle = document.querySelector('.main-title');
-
-        // 为每个选项卡片添加点击事件
-        optionCards.forEach(card => {
-            card.addEventListener('click', function() {
-                const optionType = this.getAttribute('data-option');
-                showDetailPage(optionType);
-            });
-        });
-
-        // 显示详情页面
-        function showDetailPage(optionType) {
-            const optionData = optionsData[optionType];
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("周末生活方式选择器已加载！点击任意选项查看详情。");
             
-            // 更新详情页面内容
-            detailHeading.textContent = optionData.title;
-            detailIcon.innerHTML = optionData.icon;
-            detailImage.src = optionData.image;
-            detailSuggestions.innerHTML = optionData.suggestions;
+            // 获取DOM元素
+            const optionCards = document.querySelectorAll('.option-card');
+            const detailPage = document.getElementById('detailPage');
+            const detailHeading = document.getElementById('detailHeading');
+            const detailIcon = document.getElementById('detailIcon');
+            const detailImage = document.getElementById('detailImage');
+            const detailPros = document.getElementById('detailPros');
+            const detailCons = document.getElementById('detailCons');
+            const backBtn = document.getElementById('backBtn');
+            const optionsContainer = document.querySelector('.options-container');
+            const mainTitle = document.querySelector('.main-title');
+            const gafcolContainer = document.querySelector('.gafcol-container');
+            const footer = document.querySelector('footer');
             
-            // 更新优点列表
-            detailPros.innerHTML = '';
-            optionData.pros.forEach(pro => {
-                const li = document.createElement('li');
-                li.textContent = pro;
-                detailPros.appendChild(li);
+            // 为每个选项卡片添加点击事件
+            optionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const optionType = this.getAttribute('data-option');
+                    showDetailPage(optionType);
+                });
             });
             
-            // 更新缺点列表
-            detailCons.innerHTML = '';
-            optionData.cons.forEach(con => {
-                const li = document.createElement('li');
-                li.textContent = con;
-                detailCons.appendChild(li);
-            });
-            
-            // 根据选项类型设置图标背景色
-            detailIcon.className = 'detail-icon';
-            if (optionType === 'fitness') {
-                detailIcon.style.background = 'linear-gradient(135deg, #ff3366, #ff6699)';
-            } else if (optionType === 'internet') {
-                detailIcon.style.background = 'linear-gradient(135deg, #33ccff, #66d9ff)';
-            } else {
-                detailIcon.style.background = 'linear-gradient(135deg, #ffcc00, #ffdd44)';
+            // 显示详情页面
+            function showDetailPage(optionType) {
+                const optionData = optionsData[optionType];
+                
+                // 更新详情页面内容
+                detailHeading.textContent = optionData.title;
+                detailIcon.innerHTML = optionData.icon;
+                detailImage.src = optionData.image;
+                
+                // 更新优点列表
+                detailPros.innerHTML = '';
+                optionData.pros.forEach(pro => {
+                    const li = document.createElement('li');
+                    li.textContent = pro;
+                    detailPros.appendChild(li);
+                });
+                
+                // 更新缺点列表
+                detailCons.innerHTML = '';
+                optionData.cons.forEach(con => {
+                    const li = document.createElement('li');
+                    li.textContent = con;
+                    detailCons.appendChild(li);
+                });
+                
+                // 根据选项类型设置图标背景色
+                detailIcon.className = 'detail-icon';
+                if (optionType === 'fitness') {
+                    detailIcon.style.background = 'linear-gradient(135deg, #ff3366, #ff6699)';
+                } else if (optionType === 'play') {
+                    detailIcon.style.background = 'linear-gradient(135deg, #33ff66, #66ff99)';
+                } else if (optionType === 'internet') {
+                    detailIcon.style.background = 'linear-gradient(135deg, #33ccff, #66d9ff)';
+                } else {
+                    detailIcon.style.background = 'linear-gradient(135deg, #ffcc00, #ffdd44)';
+                }
+                
+                // 显示详情页面，隐藏选项和主标题
+                detailPage.style.display = 'block';
+                optionsContainer.style.display = 'none';
+                mainTitle.style.display = 'none';
+                gafcolContainer.style.display = 'none';
+                footer.style.display = 'none';
+                
+                // 滚动到顶部
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
             
-            // 显示详情页面，隐藏选项和主标题
-            detailPage.style.display = 'block';
-            optionsContainer.style.display = 'none';
-            mainTitle.style.display = 'none';
-            
-            // 滚动到顶部
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // 返回按钮事件
-        backBtn.addEventListener('click', function() {
-            detailPage.style.display = 'none';
-            optionsContainer.style.display = 'flex';
-            mainTitle.style.display = 'block';
-        });
-
-        // 初始加载时显示一个小提示
-        window.addEventListener('DOMContentLoaded', () => {
-            console.log("2025年12月27日生活方式选择器已加载！点击任意选项查看详情。");
-            
-            // 动态更新日期显示
-            const dateElement = document.querySelector('.date-display');
-            const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-            const dateString = now.toLocaleDateString('zh-CN', options);
-            dateElement.innerHTML = `今天是${dateString}，选择最适合你的周末计划`;
+            // 返回按钮事件
+            backBtn.addEventListener('click', function() {
+                detailPage.style.display = 'none';
+                optionsContainer.style.display = 'flex';
+                mainTitle.style.display = 'block';
+                gafcolContainer.style.display = 'block';
+                footer.style.display = 'block';
+            });
         });
     </script>
 </body>
