@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年12月27日你的生活方式</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        /* 标题样式 */
+        .main-title {
+            text-align: center;
+            margin: 20px 0 50px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .main-title h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 51, 102, 0.3);
+        }
+        
+        .date-display {
+            font-size: 1.3rem;
+            margin-top: 10px;
+            color: #a0a0c0;
+            font-weight: 300;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 8px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 选项卡片样式 */
+        .options-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .option-card {
+            background: rgba(30, 30, 46, 0.8);
+            border-radius: 24px;
+            width: 320px;
+            padding: 30px 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00);
+        }
+        
+        .option-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(40, 40, 60, 0.9);
+        }
+        
+        .option-card.fitness:hover {
+            box-shadow: 0 25px 40px rgba(255, 51, 102, 0.2);
+        }
+        
+        .option-card.internet:hover {
+            box-shadow: 0 25px 40px rgba(51, 204, 255, 0.2);
+        }
+        
+        .option-card.study:hover {
+            box-shadow: 0 25px 40px rgba(255, 204, 0, 0.2);
+        }
+        
+        .option-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 45px;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .option-card:hover .option-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .fitness .option-icon {
+            background: linear-gradient(135deg, #ff3366, #ff6699);
+            box-shadow: 0 10px 20px rgba(255, 51, 102, 0.4);
+        }
+        
+        .internet .option-icon {
+            background: linear-gradient(135deg, #33ccff, #66d9ff);
+            box-shadow: 0 10px 20px rgba(51, 204, 255, 0.4);
+        }
+        
+        .study .option-icon {
+            background: linear-gradient(135deg, #ffcc00, #ffdd44);
+            box-shadow: 0 10px 20px rgba(255, 204, 0, 0.4);
+        }
+        
+        .option-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .option-desc {
+            color: #a0a0c0;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        
+        /* 详情页面样式 */
+        .detail-container {
+            background: rgba(30, 30, 46, 0.9);
+            border-radius: 25px;
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            display: none;
+            animation: fadeIn 0.6s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .detail-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .detail-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .detail-title h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #ff3366, #33ccff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+        
+        .detail-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+        }
+        
+        .back-btn {
+            background: linear-gradient(90deg, #ff3366, #33ccff);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(255, 51, 102, 0.6);
+        }
+        
+        .detail-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .detail-image {
+            flex: 1;
+            min-width: 300px;
+            min-height: 300px;
+            max-width: 400px;
+            max-height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            position: relative;
+            align-self: center;
+        }
+        
+        .detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .detail-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        .image-source {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .detail-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .detail-section {
+            margin-bottom: 30px;
+        }
+        
+        .detail-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .detail-section p, .detail-section ul {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #ccccdd;
+        }
+        
+        .detail-section ul {
+            padding-left: 20px;
+        }
+        
+        .detail-section li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .detail-section li::before {
+            content: '•';
+            color: #ff3366;
+            font-weight: bold;
+            position: absolute;
+            left: -15px;
+        }
+        
+        .pros-cons {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .pros, .cons {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .pros h4, .cons h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .pros h4 {
+            color: #33ccff;
+        }
+        
+        .cons h4 {
+            color: #ff3366;
+        }
+        
+        .pros li::before {
+            color: #33ccff;
+        }
+        
+        .cons li::before {
+            color: #ff3366;
+        }
+        
+        /* GAFCOL标识样式 */
+        .gafcol-container {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+        }
+        
+        .gafcol {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: 8px;
+            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+            position: relative;
+            display: inline-block;
+            padding: 10px 30px;
+        }
+        
+        .gafcol::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #ff3366, #33ccff, #ffcc00);
+            border-radius: 3px;
+        }
+        
+        /* 页脚 */
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 20px;
+            color: #a0a0c0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .main-title h1 {
+                font-size: 2.3rem;
+            }
+            
+            .date-display {
+                font-size: 1.1rem;
+            }
+            
+            .option-card {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .detail-container {
+                padding: 25px;
+                width: 95%;
+            }
+            
+            .detail-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .back-btn {
+                align-self: flex-start;
+            }
+            
+            .detail-title h2 {
+                font-size: 2rem;
+            }
+            
+            .detail-image {
+                min-height: 250px;
+                max-height: 300px;
+            }
+            
+            .gafcol {
+                font-size: 2.5rem;
+                letter-spacing: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 主标题 -->
+        <header class="main-title">
+            <h1>2025年12月27日你的生活方式</h1>
+            <div class="date-display">选择最适合你的周末计划，点击选项查看详情和建议</div>
+        </header>
+        
+        <!-- 选项卡片 -->
+        <div class="options-container">
+            <div class="option-card fitness" data-option="fitness">
+                <div class="option-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h2 class="option-title">健身</h2>
+                <p class="option-desc">释放压力，提升能量，塑造健康体态，为2025年打造完美开端。</p>
+            </div>
+            
+            <div class="option-card internet" data-option="internet">
+                <div class="option-icon">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h2 class="option-title">上网</h2>
+                <p class="option-desc">探索数字世界，获取前沿资讯，连接全球趋势，激发创意灵感。</p>
+            </div>
+            
+            <div class="option-card study" data-option="study">
+                <div class="option-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h2 class="option-title">复习</h2>
+                <p class="option-desc">巩固知识体系，提升专业技能，为2026年的挑战做好充分准备。</p>
+            </div>
+        </div>
+        
+        <!-- 详情页面 -->
+        <div id="detailPage" class="detail-container">
+            <div class="detail-header">
+                <div class="detail-title">
+                    <div id="detailIcon" class="detail-icon"></div>
+                    <h2 id="detailHeading">健身</h2>
+                </div>
+                <button class="back-btn" id="backBtn">
+                    <i class="fas fa-arrow-left"></i> 返回选择
+                </button>
+            </div>
+            
+            <div class="detail-content">
+                <div class="detail-image">
+                    <img id="detailImage" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="选项图片">
+                    <div class="image-source">图片来源: Unsplash</div>
+                </div>
+                
+                <div class="detail-info">
+                    <div class="detail-section">
+                        <h3>2025潮流建议</h3>
+                        <p id="detailSuggestions">结合高科技健身设备与潮流运动方式，打造个性化的健康周末计划。</p>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>优点与缺点</h3>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <h4>2025优势</h4>
+                                <ul id="detailPros">
+                                    <li>增强免疫力，应对多变环境</li>
+                                    <li>释放压力，提升心理健康</li>
+                                    <li>塑造理想体态，增强自信</li>
+                                    <li>结交志同道合的健康伙伴</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <h4>需要注意</h4>
+                                <ul id="detailCons">
+                                    <li>需要合理安排时间与强度</li>
+                                    <li>初期投入可能需要一定费用</li>
+                                    <li>需要坚持才能看到明显效果</li>
+                                    <li>不当训练可能导致运动伤害</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- GAFCOL标识 -->
+    <div class="gafcol-container">
+        <div class="gafcol">GAFCOL</div>
+    </div>
+    
+    <footer>
+        <p>2025年12月27日你的生活方式</p>
+    </footer>
+
+    <script>
+        // 选项数据 - 更新为2025年潮流风格
+        const optionsData = {
+            fitness: {
+                title: "健身",
+                icon: '<i class="fas fa-dumbbell"></i>',
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                suggestions: "1. 尝试智能健身设备，如AI教练或VR健身课程<br>2. 结合户外与室内训练，体验2025年潮流运动方式<br>3. 参加线上健身社群挑战，与全球健身爱好者互动<br>4. 利用健康追踪设备，制定个性化训练计划<br>5. 尝试功能性训练与冥想结合的新兴健身模式",
+                pros: [
+                    "增强免疫力，应对多变环境挑战",
+                    "释放工作压力，提升心理健康水平",
+                    "塑造理想体态，增强2025年新形象自信",
+                    "结交志同道合的健康伙伴，拓展社交圈",
+                    "提升整体生活质量，为长期健康投资"
+                ],
+                cons: [
+                    "需要合理安排时间与训练强度",
+                    "高品质健身设备/课程可能需要一定投入",
+                    "需要持续坚持才能看到明显效果",
+                    "不当训练可能导致运动伤害风险",
+                    "可能占用其他休闲活动时间"
+                ]
+            },
+            internet: {
+                title: "上网",
+                icon: '<i class="fas fa-laptop"></i>',
+                image: "https://images.unsplash.com/photo-1585699324551-bb5e7e3c2b59?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                suggestions: "1. 探索2025年新兴数字平台与元宇宙体验<br>2. 在网吧体验CS2等热门电竞游戏，感受竞技氛围<br>3. 关注全球前沿科技与潮流资讯<br>4. 参与线上创意工作坊或虚拟现实活动<br>5. 与朋友组队游戏，增强团队协作能力",
+                pros: [
+                    "体验最新电竞游戏如CS2，感受竞技乐趣",
+                    "网吧环境提供高性能设备，游戏体验更佳",
+                    "与朋友组队游戏，增强社交互动",
+                    "释放压力，享受沉浸式娱乐体验",
+                    "灵活安排时间，自由探索兴趣领域"
+                ],
+                cons: [
+                    "长时间游戏可能影响视力与健康",
+                    "网吧环境可能存在噪音干扰",
+                    "过度游戏可能影响学习和工作效率",
+                    "消费可能较高，需合理控制预算",
+                    "被动消费内容可能缺乏创造性产出"
+                ]
+            },
+            study: {
+                title: "复习",
+                icon: '<i class="fas fa-book-open"></i>',
+                image: "https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                suggestions: "1. 使用AI学习助手，制定个性化复习计划<br>2. 参考抖音热门学习梗图，如"贝利亚忘本"，增加学习趣味性<br>3. 尝试微学习与碎片化知识获取方式<br>4. 利用沉浸式学习工具提升专注力<br>5. 设置明确目标，为2026年职业发展做准备",
+                pros: [
+                    "结合流行文化梗图，增加学习趣味性",
+                    "系统化知识巩固，提升专业竞争力",
+                    "为2026年职业发展与挑战做好充分准备",
+                    "培养自律性与时间管理能力",
+                    "建立完整知识体系，增强问题解决能力"
+                ],
+                cons: [
+                    "长时间学习可能导致疲劳与压力积累",
+                    "可能减少周末休闲与社交活动时间",
+                    "需要较强的自我管理与自律能力",
+                    "过度学习可能影响身心健康平衡",
+                    "容易受流行文化梗图干扰而分心"
+                ]
+            }
+        };
+
+        // 获取DOM元素
+        const optionCards = document.querySelectorAll('.option-card');
+        const detailPage = document.getElementById('detailPage');
+        const detailHeading = document.getElementById('detailHeading');
+        const detailIcon = document.getElementById('detailIcon');
+        const detailImage = document.getElementById('detailImage');
+        const detailSuggestions = document.getElementById('detailSuggestions');
+        const detailPros = document.getElementById('detailPros');
+        const detailCons = document.getElementById('detailCons');
+        const backBtn = document.getElementById('backBtn');
+        const optionsContainer = document.querySelector('.options-container');
+        const mainTitle = document.querySelector('.main-title');
+
+        // 为每个选项卡片添加点击事件
+        optionCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const optionType = this.getAttribute('data-option');
+                showDetailPage(optionType);
+            });
+        });
+
+        // 显示详情页面
+        function showDetailPage(optionType) {
+            const optionData = optionsData[optionType];
+            
+            // 更新详情页面内容
+            detailHeading.textContent = optionData.title;
+            detailIcon.innerHTML = optionData.icon;
+            detailImage.src = optionData.image;
+            detailSuggestions.innerHTML = optionData.suggestions;
+            
+            // 更新优点列表
+            detailPros.innerHTML = '';
+            optionData.pros.forEach(pro => {
+                const li = document.createElement('li');
+                li.textContent = pro;
+                detailPros.appendChild(li);
+            });
+            
+            // 更新缺点列表
+            detailCons.innerHTML = '';
+            optionData.cons.forEach(con => {
+                const li = document.createElement('li');
+                li.textContent = con;
+                detailCons.appendChild(li);
+            });
+            
+            // 根据选项类型设置图标背景色
+            detailIcon.className = 'detail-icon';
+            if (optionType === 'fitness') {
+                detailIcon.style.background = 'linear-gradient(135deg, #ff3366, #ff6699)';
+            } else if (optionType === 'internet') {
+                detailIcon.style.background = 'linear-gradient(135deg, #33ccff, #66d9ff)';
+            } else {
+                detailIcon.style.background = 'linear-gradient(135deg, #ffcc00, #ffdd44)';
+            }
+            
+            // 显示详情页面，隐藏选项和主标题
+            detailPage.style.display = 'block';
+            optionsContainer.style.display = 'none';
+            mainTitle.style.display = 'none';
+            
+            // 滚动到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 返回按钮事件
+        backBtn.addEventListener('click', function() {
+            detailPage.style.display = 'none';
+            optionsContainer.style.display = 'flex';
+            mainTitle.style.display = 'block';
+        });
+
+        // 初始加载时显示一个小提示
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log("2025年12月27日生活方式选择器已加载！点击任意选项查看详情。");
+            
+            // 动态更新日期显示
+            const dateElement = document.querySelector('.date-display');
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+            const dateString = now.toLocaleDateString('zh-CN', options);
+            dateElement.innerHTML = `今天是${dateString}，选择最适合你的周末计划`;
+        });
+    </script>
+</body>
+</html>
